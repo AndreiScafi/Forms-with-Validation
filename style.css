@@ -40,7 +40,6 @@ html {
 .buttons button {
     width: 10rem;
     height: 4rem;
-    background-color: #fff;
     color: #f03535;
     border: none;
     border-radius: 5rem;
@@ -48,6 +47,14 @@ html {
     box-shadow: .3rem .3rem .8rem #eee;
     margin: 1rem 0;
     cursor: pointer;
+}
+
+.signin-btn {
+    background-color: #e7e7e7;
+}
+
+.signup-btn {
+    background-color: #fff;
 }
 
 .form-bg {
@@ -80,11 +87,16 @@ html {
     letter-spacing: .2rem;
     border: none;
     border-radius: 5rem;
+    transition: box-shadow .3s;
 }
 
 .form-input {
     box-shadow: .3rem .3rem .5rem #eee inset;
     color: #888;
+}
+
+.form-input:focus {
+    box-shadow: .5rem .5rem 1rem #eee inset;
 }
 
 .message {
