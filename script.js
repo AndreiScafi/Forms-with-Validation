@@ -38,13 +38,25 @@ const error = (input, message) => {
     inputWrapper.querySelector('.message').textContent = message;
 }
 
+const success = (input) => {
+    const inputWrapper = input.parentElement;
+
+    inputWrapper.className = "form-input-wrapper success";
+}
+
 const checkRequiredFields = (inputArr) => {
     inputArr.forEach((input) => {
         if (input.value.trim() === '') {
-            // Error
-            error(input, `${input.id} is required`);
+            if (input.id === "password2") {
+                error(input, 'Password confirmation is required')
+            } else {
+                // Error
+                error(input, `${input.id} is required`);
+            }
+
         } else {
             //Success
+            success(input);
         }
     });
 }
