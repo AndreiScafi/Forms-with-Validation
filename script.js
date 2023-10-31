@@ -4,12 +4,20 @@ const signUpBtn = document.querySelector('.signup-btn');
 const signInBtn = document.querySelector('.signin-btn');
 const headingSpan2 = document.querySelector('.heading-span-2');
 
+const clearForm = () => {
+    document.querySelectorAll('.form-input-wrapper').forEach((item) => {
+        item.className = 'form-input-wrapper';
+    });
+    form.reset();
+};
+
 signUpBtn.addEventListener('click', () => {
     container.classList.add('change');
     setTimeout(() => {
         headingSpan2.textContent = "Up";
     }, 200);
-
+    form.className = 'form sign-up';
+    clearForm();
 });
 
 signInBtn.addEventListener('click', () => {
@@ -17,7 +25,8 @@ signInBtn.addEventListener('click', () => {
     setTimeout(() => {
         headingSpan2.textContent = "In";
     }, 200);
-
+    form.className = 'form sign-in';
+    clearForm();
 })
 
 /* End of Buttons */
@@ -64,7 +73,12 @@ const checkRequiredFields = (inputArr) => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('Submited');
-    checkRequiredFields([username, email, password, password2]);
+    if (form.classList[1] === 'sign-up') {
+        checkRequiredFields([username, email, password, password2]);
+    } else {
+        checkRequiredFields([email, password]);
+    }
+
 })
 
 /* End of Input Validation */
