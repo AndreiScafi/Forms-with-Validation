@@ -53,6 +53,18 @@ const success = (input) => {
     inputWrapper.className = "form-input-wrapper success";
 }
 
+/* Checking Valid email */
+const checkEmail = (input) => {
+    const regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (regEx.test(input.value.trim())) {
+        success(input);
+    } else {
+        error(input, 'Email is not valid');
+    }
+}
+/* End of Checking Valid email */
+
 const checkRequiredFields = (inputArr) => {
     inputArr.forEach((input) => {
         if (input.value.trim() === '') {
@@ -99,8 +111,10 @@ form.addEventListener('submit', (e) => {
         checkRequiredFields([username, email, password, password2]);
         checkLength(username, 2, 15);
         checkLength(password, 5, 25);
-        passwordsMatch(password, password2)
+        passwordsMatch(password, password2);
     } else {
         checkRequiredFields([email, password]);
     };
+
+    checkEmail(email);
 });
