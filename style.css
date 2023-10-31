@@ -47,6 +47,7 @@ html {
     box-shadow: .3rem .3rem .8rem #eee;
     margin: 1rem 0;
     cursor: pointer;
+    transition: background-color .3s;
 }
 
 .signin-btn {
