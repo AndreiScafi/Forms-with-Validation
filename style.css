@@ -53,8 +53,16 @@ html {
     background-color: #e7e7e7;
 }
 
+.change .signin-btn {
+    background-color: #fff;
+}
+
 .signup-btn {
     background-color: #fff;
+}
+
+.change .signup-btn {
+    background-color: #e7e7e7;
 }
 
 .form-bg {
