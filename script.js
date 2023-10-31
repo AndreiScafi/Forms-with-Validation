@@ -70,15 +70,28 @@ const checkRequiredFields = (inputArr) => {
     });
 }
 
+/* End of Input Validation */
+
+/* Check Length */
+const checkLength = (input, min, max) => {
+    if (input.value.length < min) {
+        error(input, `${input.id} must be at least ${min} characters`);
+    } else if (input.value.length > max) {
+        error(input, `${input.id} must be less than ${max} characters`);
+    } else {
+        success(input);
+    }
+};
+/* End of Check Length */
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('Submited');
     if (form.classList[1] === 'sign-up') {
         checkRequiredFields([username, email, password, password2]);
+        checkLength(username, 2, 15);
+        checkLength(password, 5, 25);
     } else {
         checkRequiredFields([email, password]);
-    }
-
-})
-
-/* End of Input Validation */
+    };
+});
