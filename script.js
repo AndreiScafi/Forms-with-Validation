@@ -84,6 +84,14 @@ const checkLength = (input, min, max) => {
 };
 /* End of Check Length */
 
+/* Passwords Match */
+const passwordsMatch = (input1, input2) => {
+    if (input1.value !== input2.value) {
+        error(input2, "Passwords do not match");
+    }
+}
+/* End of Passwords Match */
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('Submited');
@@ -91,6 +99,7 @@ form.addEventListener('submit', (e) => {
         checkRequiredFields([username, email, password, password2]);
         checkLength(username, 2, 15);
         checkLength(password, 5, 25);
+        passwordsMatch(password, password2)
     } else {
         checkRequiredFields([email, password]);
     };
